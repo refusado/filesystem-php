@@ -1,0 +1,8 @@
+{
+    "name": "refu/uploads",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
+    }
+}
