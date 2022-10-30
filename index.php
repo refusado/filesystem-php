@@ -9,7 +9,7 @@ include __DIR__ . '/includes/form.php';
 
 if (isset($_FILES['sentFile'])) {
     $fileObject = new Upload($_FILES['sentFile']);
-    $success = $fileObject->upload(__DIR__.'/files');
+    $success = $fileObject->upload(__DIR__.'/files', false);
 
     echo "<pre>";
     print_r($fileObject);

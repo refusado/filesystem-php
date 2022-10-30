@@ -11,42 +11,51 @@ class Upload
     private $error;
     private $size;
 
+    private $duplicates = 0;
+
     public function __construct($file = '')
     {
-        $info = pathinfo($file['name']);
-        
-        $this->name     = $info['filename'];
-        $this->extension= $info['extension'];
+        if (!empty($file['name'])) {
+            $info = pathinfo($file['name']);
+
+            $this->name = $info['filename'];
+            $this->extension = $info['extension'];
+        }
+
         $this->type     = $file['type'];
         $this->tmpName  = $file['tmp_name'];
         $this->error    = $file['error'];
         $this->size     = $file['size'];
-        
-        
-        echo "<pre>PATH INFO";
-        print_r($info);
-        echo "</pre>";
-
-        
-        echo "<pre>FILE INFO";
-        print_r($file);
-        echo "</pre>";
     }
 
-    public function getBaseName()
+    public function getBasename()
     {
-        $extension = strlen($this->extension) ? '.' .$this->extension : '';
+        $extension = strlen($this->extension) ? '.' . $this->extension : '';
+        $duplicates = $this->duplicates > 0 ? '-' . $this->duplicates : '';
 
-        return $this->name . $extension;
+        return $this->name . $duplicates . $extension;
     }
 
-    public function upload($dir)
+    private function getPossibleBaseName($dir, $overwrite)
+    {
+        if ($overwrite) return $this->getBasename();
+
+        $basename = $this->getBasename();
+
+        if (!file_exists($dir . '/' . $basename)) {
+            return $basename;
+        }
+
+        $this->duplicates++;
+
+        return $this->getPossibleBaseName($dir, $overwrite);
+    }
+
+    public function upload($dir, $overwrite = true)
     {
         if ($this->error != 0) return false;
 
-        $path = $dir . '/' . $this->getBasename();
-        
-        // echo "<hr> PATH: " . $path . "<hr>";
+        $path = $dir . '/' . $this->getPossibleBasename($dir, $overwrite);
         return move_uploaded_file($this->tmpName, $path);
     }
 }
