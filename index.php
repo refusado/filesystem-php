@@ -8,15 +8,19 @@ use \App\File\Upload;
 include __DIR__ . '/includes/form.php';
 
 if (isset($_FILES['sentFile'])) {
-    $fileObject = new Upload($_FILES['sentFile']);
-    $success = $fileObject->upload(__DIR__.'/files', false);
+    $uploadObj = new Upload($_FILES['sentFile']);
 
-    echo "<pre>";
-    print_r($fileObject);
-    echo "</pre>";
+    // $uploadObj->setName('novo-arquivo');
+    $uploadObj->generateRandomName();
+
+    $success = $uploadObj->upload(__DIR__.'/files', false);
+
+    // echo "<pre>";
+    // print_r($uploadObj);
+    // echo "</pre>";
     
     if ($success) {
-        echo "Arquivo enviado com sucesso!";
+        echo "Arquivo <b>" . $uploadObj->getBasename() . "</b> enviado com sucesso!";
     } else {
         echo "Não foi possível enviar o arquivo";
     }

@@ -28,6 +28,16 @@ class Upload
         $this->size     = $file['size'];
     }
 
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    public function generateRandomName()
+    {
+        $this->name = time() . '-' . uniqid();
+    }
+
     public function getBasename()
     {
         $extension = strlen($this->extension) ? '.' . $this->extension : '';
