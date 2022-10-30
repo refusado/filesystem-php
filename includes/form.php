@@ -9,8 +9,7 @@
     <h1>Upload de arquivos</h1>
 
     <form method="post" enctype="multipart/form-data">
-        <label for="fileId">Arquivo</label>
-        <input type="file" name="fileTest" id="fileTestId">
+        <input type="file" name="sentFile" id="file">
         <br>
         <button type="submit">Enviar</button>
     </form>

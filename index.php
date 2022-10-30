@@ -5,14 +5,20 @@ require __DIR__ . '/vendor/autoload.php';
 
 use \App\File\Upload;
 
-if (isset($_FILES['fileTest'])) {
+include __DIR__ . '/includes/form.php';
 
-    $fileObject = new Upload($_FILES['fileTest']);
+if (isset($_FILES['sentFile'])) {
+    $fileObject = new Upload($_FILES['sentFile']);
+    $success = $fileObject->upload(__DIR__.'/files');
+
     echo "<pre>";
     print_r($fileObject);
     echo "</pre>";
+    
+    if ($success) {
+        echo "Arquivo enviado com sucesso!";
+    } else {
+        echo "Não foi possível enviar o arquivo";
+    }
 
-    exit;
 }
-
-include __DIR__ . '/includes/form.php';
