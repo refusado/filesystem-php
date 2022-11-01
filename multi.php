@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="styles/styles.css">
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
