@@ -52,12 +52,9 @@ class Upload
 
         $basename = $this->getBasename();
 
-        if (!file_exists($dir . '/' . $basename)) {
-            return $basename;
-        }
+        if (!file_exists($dir . '/' . $basename)) return $basename;
 
         $this->duplicates++;
-
         return $this->getPossibleBaseName($dir, $overwrite);
     }
 
@@ -67,5 +64,28 @@ class Upload
 
         $path = $dir . '/' . $this->getPossibleBasename($dir, $overwrite);
         return move_uploaded_file($this->tmpName, $path);
+    }
+
+    public static function createMultipleUploads($files)
+    {
+        $uploads = [];
+
+        if (!empty($files['name'][0])) {  
+            foreach($files['name'] as $key => $value) {
+                $file = [
+                    'name'      => $files['name'][$key],
+                    'type'      => $files['type'][$key],
+                    'tmp_name'  => $files['tmp_name'][$key],
+                    'error'     => $files['error'][$key],
+                    'size'      => $files['size'][$key]
+                ];
+                
+                $uploads[] = new Upload($file);
+            }   
+        } else {
+            return false;
+        }
+
+        return $uploads;
     }
 }

@@ -2,10 +2,9 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
+include __DIR__ . '/includes/form.php';
 
 use \App\File\Upload;
-
-include __DIR__ . '/includes/form.php';
 
 if (isset($_FILES['sentFile'])) {
     $uploadObj = new Upload($_FILES['sentFile']);
@@ -14,11 +13,6 @@ if (isset($_FILES['sentFile'])) {
     $uploadObj->generateRandomName();
 
     $success = $uploadObj->upload(__DIR__.'/files', false);
-
-    // echo "<pre>";
-    // print_r($uploadObj);
-    // echo "</pre>";
-    
     if ($success) {
         echo "Arquivo <b>" . $uploadObj->getBasename() . "</b> enviado com sucesso!";
     } else {
