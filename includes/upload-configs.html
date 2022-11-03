@@ -1,15 +1,13 @@
-<form method="post" id="uploadConfigs"></form>
-    <label for="oneFile">Apenas um arquivo</label>
-    <input type="checkbox" name="oneFile" id="oneFile">
-    
-    <br>
+<form method="post" id="uploadConfigs">
+    <h5>Permitir o envio de</h5>
+    <div class="filesNo">
+        <input type="radio" name="filesNo" id="oneFile" hidden>
+        <label for="oneFile">Apenas um arquivo</label>
+        <input type="radio" name="filesNo" id="severalFiles" hidden>
+        <label for="severalFiles">Vários arquivos</label>
+    </div>
 
-    <label for="sizeLimit">Tamanho limite</label>
-    <input type="range" name="sizeLimit" id="sizeLimit">
-    
-    <br>
-
-    Extensões permitidas
+    <h5>Extensões permitidas</h5>
     <div class="allowedExtensions">
         <input type="checkbox" name="png" id="png" hidden checked>
         <label for="png">.png</label>
@@ -26,4 +24,15 @@
         <input type="checkbox" name="exe" id="exe" hidden>
         <label for="exe">.exe</label>
     </div>
+    
+    <h5>Tamanho máximo de arquivo</h5>
+    <div class="maxSize">
+        <!-- 500KB 1MB 5MB 7MB 10MB 15MB 20MB 30MB 40MB 50MB 60MB 70MB 80MB 90MB 100MB 150MB -->
+        <input type="range" name="sizeLimit" id="sizeLimit" value="3" min="1" max="16" step="1">
+        <span id="sizeValue"></span>
+    </div>
+
+    <hr>
+
+    <button type="submit">Confirmar configurações</button>
 </form>

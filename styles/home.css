@@ -2,10 +2,3 @@ body {
     background-color: darkslateblue;
     color: aliceblue;
 }
-
-h2 {
-    font-size: 1.33rem;
-    text-transform: uppercase;
-    letter-spacing: -0.10rem;
-    word-spacing: 0.5rem;
-}
