@@ -52,6 +52,6 @@ function updateSizeValue() {
 }
 
 sizeInput.addEventListener("mousemove", updateSizeValue);
-sizeInput.addEventListener("change", updateSizeValue);
+sizeInput.addEventListener("input", updateSizeValue);
 
 updateSizeValue();

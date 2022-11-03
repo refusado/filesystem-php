@@ -3,6 +3,7 @@
 include __DIR__ . '/includes/home/header.html';
 require __DIR__ . '/vendor/autoload.php';
 use \App\Upload;
+use \App\AllFiles;
 
 // SISTMEA PARA FORMULÁRIO DE UM ARQUIVO
 include __DIR__ . '/includes/form.html';
@@ -42,5 +43,14 @@ if (isset($_FILES['sentFiles'])) {
         echo "Não foi possível enviar o arquivo <br>";
     }
 }
+
+// SISTEMA PARA MOSTRAR OS ARQUIVOS
+$filesObj = new AllFiles();
+
+echo "<h4>Lista de Arquivos</h4>";
+if (!$filesObj->getFilesName()) {
+    echo "Não foi possível exibir os arquivos";
+}
+
 
 include __DIR__ . '/includes/home/footer.html';
