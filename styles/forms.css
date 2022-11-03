@@ -1,0 +1,21 @@
+form {
+    margin: 20px;
+}
+
+#uploadConfigs {
+    background-color: #00000047;
+}
+
+.allowedExtensions label {
+    display: inline-block;
+    background-color: red;
+    user-select: none;
+    padding: 8px 14px;
+    margin: 18px;
+    border-radius: 0.6rem;
+    cursor: pointer;
+}
+
+.allowedExtensions input:checked+label {
+    background-color: green;
+}

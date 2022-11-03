@@ -1,6 +1,6 @@
 <?php
 
-namespace App\File;
+namespace App;
 
 class Upload
 {

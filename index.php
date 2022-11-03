@@ -2,7 +2,10 @@
 
 include __DIR__ . '/includes/home/head.html';
 require __DIR__ . '/vendor/autoload.php';
-use \App\File\Upload;
+use \App\Upload;
+
+// FORMULÁRIO PARA AS CONFIGURAÇÕES DE UPLOAD
+include __DIR__ . '/includes/upload-configs.html';
 
 // SISTMEA PARA FORMULÁRIO DE UM ARQUIVO
 include __DIR__ . '/includes/form.html';
