@@ -5,7 +5,10 @@ require __DIR__ . '/vendor/autoload.php';
 use \App\Upload;
 use \App\AllFiles;
 
+echo "<section class='files'>";
+
 // SISTMEA PARA FORMULÁRIO DE UM ARQUIVO
+echo "<div class='sendfiles'>";
 include __DIR__ . '/includes/form.html';
 
 if (isset($_FILES['sentFile'])) {
@@ -43,14 +46,33 @@ if (isset($_FILES['sentFiles'])) {
         echo "Não foi possível enviar o arquivo <br>";
     }
 }
+echo "</div>";
 
 // SISTEMA PARA MOSTRAR OS ARQUIVOS
+echo "<aside>";
 $filesObj = new AllFiles();
 
-echo "<h4>Lista de Arquivos</h4>";
-if (!$filesObj->getFilesName()) {
+$allFiles = $filesObj->getFilesName();
+
+if (!$allFiles) {
     echo "Não foi possível exibir os arquivos";
+} else {
+    echo "<h4>Lista de Arquivos</h4>";
+    
+    echo "<ul class='fileViewer'>";
+    foreach ($allFiles as $file) {
+        $iconPath = $filesObj->getIcon($file);
+        // echo "O arquivo $file tem a extensão $iconName <br>";
+        echo "<li class='fileViewer__file'>";
+        echo "<img src='$iconPath'/>";
+        echo "<span>$file</span>";
+        echo "</li>";
+    }
+    
+    echo "</ul>";
 }
 
+echo "</aside>";
+echo "</section>";
 
 include __DIR__ . '/includes/home/footer.html';

@@ -2,3 +2,60 @@ body {
     background-color: darkslateblue;
     color: aliceblue;
 }
+
+.files {
+    background-color: teal;
+    display: flex;
+    width: min(100vw, 1280px);
+    margin: 0 auto;
+
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-flow: row wrap;
+}
+
+.sendfiles {
+    display: inline-block;
+    background-color: chocolate;
+    width: max(36%, 340px);
+    padding: 40px;
+}
+
+aside {
+    display: inline-block;
+    background-color: brown;
+    width: max(52%, 472px); 
+}
+
+.fileViewer {
+    background-color: #00000022;
+    display: flex;
+    padding: 16px;
+    gap: 8px;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    height: 80vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    border-radius: .5rem;
+}
+
+.fileViewer__file {
+    background-color: red;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+
+    padding: 8px;
+    border-radius: .4rem;
+    width: max(calc(50% - 4px), 300px);
+}
+
+.fileViewer__file > img {
+    width: 60px;
+}

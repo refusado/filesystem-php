@@ -6,57 +6,71 @@ class AllFiles
 {    
     private $path;
     private $dir;
+    private $files = [];
 
     public function __construct($filePath = 'files/')
     {
         $this->path = $filePath;    
     }
 
+    private function openDirectory($path)
+    {
+        $this->dir = dir($path);
+    }
+
     public function getFilesName()
     {
         @$this->openDirectory($this->path);
+        
         if (!$this->dir) return false;
-
-        $imageExtensions = [
-            'png', 'PNG', 'Png',
-            'jpg', 'JPG', 'Jpg',
-            'jpeg', 'JPEG', 'Jpeg',
-            'gif', 'GIF', 'Gif',
-            'svg', 'SVG', 'Svg',
-            'bmp', 'BMP', 'Bmp',
-            'tiff', 'TIFF', 'Tiff',
-            'webp', 'WEBP', 'Webp'
-        ];
 
         while($file = $this->dir->read()) {
             $completePath   = $this->path . $file;
             $pathInfo       = pathinfo($completePath);
-            $fileBasebame   = $pathInfo['basename'];
-            $fileName       = $pathInfo['filename'];
-            $fileExtension  = $pathInfo['extension'];
 
-            // echo "<pre>";
-            // print_r($pathInfo);
-            // echo "</pre>";
-
-            // echo $fileExtension;
-            
-            if ($fileExtension == "png" || $fileExtension == "jpg" || $fileExtension == "jpeg") {
-                echo "
-                    <img width='200px' src='" . $this->path . $file . "'/>
-                ";
+            if (!empty($pathInfo['extension'])) {
+                array_push($this->files, $pathInfo['basename']);
             }
-
-            // echo "<a href='".$this->path . $file . "'>" . $file . "</a><br />";
         }
 
         $this->dir->close();
         
-        return true;
+        return $this->files;
     }
 
-    private function openDirectory($path)
+    public function getIcon($file)
     {
-        $this->dir = dir($path);
+        $imageExtensions    = ['PNG','JPG','JPEG','GIF','SVG','BMP','TIFF','WEBP'];
+        $pdfExtensions      = ['PDF'];
+        $exeExtensions      = ['EXE'];
+        $txtExtensions      = ['TXT','DOC'];
+        $videoExtensions    = ['WAV', 'MP4', 'WMBP'];
+
+        $completePath   = $this->path . $file;
+        $pathInfo       = pathinfo($completePath);
+
+        // print_r($pathInfo);
+
+        $fileExtension  = strtoupper($pathInfo['extension']);
+
+        foreach ($pdfExtensions as $pdfExtension) {
+            if ($fileExtension == $pdfExtension) return 'assets/icons/pdf-icon.png';
+        }
+
+        foreach ($imageExtensions as $imgExtension) {
+            if ($fileExtension == $imgExtension) return $completePath;
+        }
+
+        foreach ($txtExtensions as $txtExtension) {
+            if ($fileExtension == $txtExtension) return 'assets/icons/text-icon.png';
+        }
+
+        foreach ($exeExtensions as $exeExtension) {
+            if ($fileExtension == $exeExtension) return 'assets/icons/exe-icon.png';
+        }
+
+        foreach ($videoExtensions as $videoExtension) {
+            if ($fileExtension == $videoExtension) return 'assets/icons/video-icon.png';
+        }
     }
 }
