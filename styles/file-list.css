@@ -1,0 +1,57 @@
+.fileViewer {
+    background-color: #0000004d;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 8px;
+    
+    height: 80vh;
+    padding: 32px 16px;
+    border-radius: 0.25rem;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.fileViewer__item {
+    background-color: #9fb0e99c;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+
+    width: max(calc(50% - 4px), 300px);
+    border-radius: 0.15rem;
+
+    cursor: pointer;
+    transition: 150ms;
+}
+
+.fileViewer__item a {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding: 4px;
+    min-height: 60px;
+    width: 100%;
+}
+
+.fileViewer__item:hover {
+    background-color: #607fe5ca;
+}
+
+.fileViewer__item img {
+    width: min(60px, 20%);
+}
+
+.fileViewer__item span {
+    color: black;
+    align-self: flex-start;
+    padding-top: 2px;
+    font-size: 1rem;
+
+    word-break: break-all;
+}

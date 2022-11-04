@@ -1,5 +1,5 @@
 <?php
 
-include __DIR__ . '/includes/home/header.html';
+include __DIR__ . '/includes/header.html';
 
-include __DIR__ . '/includes/home/footer.html';
+include __DIR__ . '/includes/footer.html';

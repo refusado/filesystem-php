@@ -1,11 +1,11 @@
 #uploadConfigs {
-    background-color: #00000047;
+    background-color: #0000004d;
     padding: 34px;
     max-width: 800px;
     margin: 0 auto;
 }
 
-#uploadConfigs > h5 {
+#uploadConfigs>h5 {
     font-size: 1.25rem;
     margin-bottom: 1.25rem;
 }
@@ -22,19 +22,19 @@
     display: inline-block;
     user-select: none;
     cursor: pointer;
-    border-radius: .25rem;
-    
+    border-radius: 0.25rem;
+
     padding: 8px 14px;
-    color: #fff;
-    background-color: #5c6ab9;
-    opacity: .7;
+    color: #4e66ee;
+    background-color: transparent;
+    border: 1px solid #4e66ee;
 
     transition: 200ms ease-out;
 }
 
-.filesNo input:checked + label {
+.filesNo input:checked+label {
+    color: #fff;
     background-color: #4e66ee;
-    opacity: 1;
     cursor: default;
 }
 
@@ -49,18 +49,18 @@
 .allowedExtensions label {
     display: inline-block;
     user-select: none;
-    opacity: .8;
+    opacity: 0.8;
 
     color: #fff;
     background-color: #5c6ab9;
     padding: 8px 14px;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
 
     cursor: pointer;
     transition: 200ms ease-out;
 }
 
-.allowedExtensions input:checked + label {
+.allowedExtensions input:checked+label {
     background-color: #4e66ee;
     opacity: 1;
 }

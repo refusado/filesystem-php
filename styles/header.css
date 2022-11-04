@@ -1,14 +1,13 @@
 .menu {
     display: flex;
     justify-content: center;
-    margin-bottom: 14px;
 }
 
 .menu__item {
-    display: inline-block;
-    padding: 1rem 1.4rem;
     color: white;
-    font-size: .95em;
+    display: inline-block;
+    padding: 2rem 1.6rem;
+
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;

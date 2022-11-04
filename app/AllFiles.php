@@ -8,16 +8,19 @@ class AllFiles
     private $dir;
     private $files = [];
 
+    // DEFINIR O DIRETÓRIO DOS ARQUIVOS A SEREM LISTADOS
     public function __construct($filePath = 'files/')
     {
         $this->path = $filePath;    
     }
 
+    // ABRIR DIRETÓRIO DE ARQUIVOS PARA VARREDURA
     private function openDirectory($path)
     {
         $this->dir = dir($path);
     }
 
+    // VARRE ARQUIVOS E ADICIONA NOME DE CADA UM À ARRAY
     public function getFilesName()
     {
         @$this->openDirectory($this->path);
@@ -38,6 +41,7 @@ class AllFiles
         return $this->files;
     }
 
+    // OBTER O CAMINHO DO ÍCONE DE CADA TIPO DE ARQUIVO
     public function getIcon($file)
     {
         $imageExtensions    = ['PNG','JPG','JPEG','GIF','SVG','BMP','TIFF','WEBP'];
@@ -48,8 +52,6 @@ class AllFiles
 
         $completePath   = $this->path . $file;
         $pathInfo       = pathinfo($completePath);
-
-        // print_r($pathInfo);
 
         $fileExtension  = strtoupper($pathInfo['extension']);
 
