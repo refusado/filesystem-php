@@ -2,14 +2,15 @@
     background-color: #0000004d;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: flex-start;
+    align-content: flex-start;
     gap: 8px;
     
     height: 80vh;
     padding: 32px 16px;
     border-radius: 0.25rem;
 
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
@@ -21,7 +22,7 @@
     align-items: center;
     gap: 10px;
 
-    width: max(calc(50% - 4px), 300px);
+    width: max(calc(50% - 4px), 260px);
     border-radius: 0.15rem;
 
     cursor: pointer;
