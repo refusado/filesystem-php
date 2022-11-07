@@ -1,9 +1,9 @@
 <?php
 
 use \App\Upload;
-$multFiles = true;
+$multFiles = false;
 
-echo "<div class='sendfiles'>";
+echo "<div class='send-files'>";
 
 if ($multFiles) {
     // SISTEMA PARA FORMULÁRIO DE VÁRIOS ARQUIVOS
@@ -42,4 +42,6 @@ if ($multFiles) {
         }
     }
 }
+
 echo "</div>";
+echo "<script src='app/js/upload-input.js'></script>";

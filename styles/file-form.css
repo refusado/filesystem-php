@@ -1,17 +1,17 @@
-.sendfiles {
+.send-files {
     display: inline-block;
-    width: max(32%, 320px);
+    width: min(280px, 90%);
     margin: 20px 0;
 }
 
-.sendfiles h2 {
+.send-files h2 {
     text-align: center;
     font-size: 1.8rem;
     font-weight: bold;
     padding: 16px;
 }
 
-.sendfiles form {
+.send-files form {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -20,7 +20,29 @@
     margin: 16px 0;
 }
 
-.sendfiles button {
+.input-box {
+    color: #110d00c3;
+    background-color: #ffffff30;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 7px;
+    padding: 14px;
+    max-width: 100%;
+
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.input-box > p, .input-box > span {
+    text-align: center;
+}
+
+.input-box > p {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.send-files button {
     display: inline-block;
     user-select: none;
     cursor: pointer;
