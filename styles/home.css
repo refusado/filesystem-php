@@ -7,12 +7,14 @@ body {
     display: flex;
     width: min(100vw, 1280px);
     max-width: calc(100vw - 17px);
-    margin: 32px auto;
+    margin: 0 auto;
 
     justify-content: center;
     align-items: center;
     gap: 20px;
     flex-flow: row wrap;
+
+    height: 75vh;
 }
 
 aside {
@@ -22,7 +24,19 @@ aside {
 
 aside h4 {
     text-align: center;
-    font-size: 32px;
+    font-size: min(32px, 5vh);
     font-weight: bold;
-    padding: 16px;
+    padding: min(16px, 4vh);
+    
+    max-height: 10vh;
+}
+
+#about hr {
+    margin: 40px 0;
+}
+
+@media (max-width: 1125px) {
+    .files {
+        height: fit-content;
+    }
 }

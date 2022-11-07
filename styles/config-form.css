@@ -5,7 +5,7 @@
     margin: 0 auto;
 }
 
-#uploadConfigs>h5 {
+#uploadConfigs > h4 {
     font-size: 1.25rem;
     margin-bottom: 1.25rem;
 }
@@ -32,7 +32,7 @@
     transition: 200ms ease-out;
 }
 
-.filesNo input:checked+label {
+.filesNo input:checked + label {
     color: #fff;
     background-color: #4e66ee;
     cursor: default;
@@ -60,7 +60,83 @@
     transition: 200ms ease-out;
 }
 
-.allowedExtensions input:checked+label {
+.allowedExtensions input:checked + label {
     background-color: #4e66ee;
     opacity: 1;
+}
+
+.preserveName {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-bottom: 40px;
+}
+
+.preserveName label {
+    display: inline-block;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 0.25rem;
+
+    padding: 8px 14px;
+    color: #4e66ee;
+    background-color: transparent;
+    border: 1px solid #4e66ee;
+
+    transition: 200ms ease-out;
+}
+
+.preserveName input:checked + label {
+    color: #fff;
+    background-color: #4e66ee;
+    cursor: default;
+}
+
+.maxSize {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.maxSize > span {
+    color: #111217f9;
+    background-color: #ced2ef;
+    padding: 6px 8px;
+    font-size: small;
+    font-weight: bold;
+    border-radius: 2px;
+}
+
+#uploadConfigs hr {
+    border: 1px solid #8497ff2c;
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 24px;
+}
+
+#sendConfigs {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#sendConfigs > button {
+    color: #fff;
+    background-color: #4e66ee;
+    display: inline-block;
+    padding: 8px 14px;
+
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 1px solid #4e66ee;
+    border-radius: 0.25rem;
+        
+    user-select: none;
+    cursor: pointer;
+    transition: 200ms ease-out;
+}
+
+#sendConfigs > button:hover {
+    background-color: #5a70eb;
 }
