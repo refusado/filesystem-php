@@ -64,9 +64,19 @@ class Upload
     }
 
     // FUNÇÃO PARA FAZER DE FATO O UPLOAD DO ARQUIVO
-    public function upload($dir, $overwrite = true)
+    public function upload($dir, $overwrite = true, $maxSize, $allowedExtensions)
     {
         if ($this->error != 0) return false;
+        if ($this->size > $maxSize) return false;
+
+        $hasMatch = false;
+        foreach ($allowedExtensions as $ex) {
+            if ($ex == $this->extension) {
+                $hasMatch = true;
+            }
+        }
+
+        if (!$hasMatch) return false;
 
         $path = $dir . '/' . $this->getPossibleBasename($dir, $overwrite);
         return move_uploaded_file($this->tmpName, $path);

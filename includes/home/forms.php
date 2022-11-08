@@ -2,6 +2,9 @@
 
 use \App\Upload;
 $multFiles = false;
+$allowedExtensions = ['png', 'jpg', 'txt'];
+$preserveName = false;
+$maxFileSize = 500000;
 
 echo "<div class='send-files'>";
 
@@ -16,6 +19,8 @@ if ($multFiles) {
         if ($uploads) {
             foreach($uploads as $uploadObj) {
                 $success = $uploadObj->upload('files', false);
+
+                if (!$preserveName) $uploadObj->generateRandomName();
 
                 if ($success) {
                     echo "Arquivo <b>" . $uploadObj->getBasename() . "</b> enviado com sucesso! <br>";
@@ -34,7 +39,9 @@ if ($multFiles) {
     if (isset($_FILES['sentFile'])) {
         $uploadObj = new Upload($_FILES['sentFile']);
 
-        $success = $uploadObj->upload('files', false);
+        if (!$preserveName) $uploadObj->generateRandomName();
+
+        $success = $uploadObj->upload('files', false, $maxFileSize, $allowedExtensions);
         if ($success) {
             echo "Arquivo <b>" . $uploadObj->getBasename() . "</b> enviado com sucesso!";
         } else {
