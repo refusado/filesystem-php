@@ -1,8 +1,9 @@
 <?php
 
 use \App\Upload;
-$multFiles = true;
-$allowedExtensions = ['png', 'jpg', 'txt'];
+use App\Notification;
+$multFiles = false;
+$allowedExtensions = ['png', 'jpg', 'txt', 'mp4'];
 $preserveName = false;
 $maxFileSize = 500000;
 
@@ -23,13 +24,13 @@ if ($multFiles) {
                 if (!$preserveName) $uploadObj->generateRandomName();
 
                 if ($success) {
-                    echo "Arquivo <b>" . $uploadObj->getBasename() . "</b> enviado com sucesso! <br>";
+                    $noti = new Notification("Arquivo <b>" . $uploadObj->getBasename() . "</b> enviado com sucesso!", "success");
                 } else {
-                    echo "Não foi possível enviar o arquivo <br>";
+                    new Notification("Não foi possível enviar o arquivo", "failure");
                 }
             }
         } else {
-            echo "Não foi possível enviar o arquivo <br>";
+            new Notification("Não foi possível enviar o arquivo", "failure");
         }
     }
 } else {
@@ -42,11 +43,11 @@ if ($multFiles) {
         if (!$preserveName) $uploadObj->generateRandomName();
         
         $success = $uploadObj->upload('files', false, $maxFileSize, $allowedExtensions);
-        echo "<h1>" . $uploadObj->getExtension() . "</h1><hr>";
+        // echo "<h1>" . $uploadObj->getExtension() . "</h1><hr>";
         if ($success) {
-            echo "Arquivo <b>" . $uploadObj->getBasename() . "</b> enviado com sucesso!";
+            $noti = new Notification("Arquivo <b>" . $uploadObj->getBasename() . "</b> enviado com sucesso!", "success");
         } else {
-            echo "Não foi possível enviar o arquivo";
+            new Notification("Não foi possível enviar o arquivo", "failure");
         }
     }
 }

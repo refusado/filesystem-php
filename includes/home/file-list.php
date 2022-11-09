@@ -2,6 +2,7 @@
 
 // SISTEMA PARA LISTAR ARQUIVOS NO DOM
 use App\ListFiles;
+use App\Notification;
 
 $filesObj = new ListFiles();
 $allFiles = $filesObj->getFilesName();
@@ -12,7 +13,8 @@ if (@$_GET['delete']) {
 }
 
 if (@$_GET['deleted']) {
-    echo 'Arquivo <b>' . $_GET['deleted'] . '</b> removido com sucesso.';
+    // echo 'Arquivo <b>' . $_GET['deleted'] . '</b> removido com sucesso.';
+    new Notification('Arquivo <b>' . $_GET['deleted'] . '</b> removido com sucesso.');
 }
 
 echo "<aside>";

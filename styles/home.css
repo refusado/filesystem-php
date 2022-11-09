@@ -35,6 +35,45 @@ aside h4 {
     margin: 40px 0;
 }
 
+#notify {
+    position: fixed;
+    bottom: 40px;
+    left: calc(50vw - 220px);
+    width: 440px;
+    max-width: 440px;
+    display: flex;
+    justify-content: center;
+
+    opacity: 0;
+    animation: notifying 4000ms ease forwards;
+}
+
+#notify > span {
+    color: black;
+    background-color: #ffffff3e;
+    padding: 20px;
+    max-width: 100%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+@keyframes notifying {
+    0% {
+        transform: translateY(40px);
+    }
+    20% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
 @media (max-width: 1125px) {
     .files {
         height: fit-content;
