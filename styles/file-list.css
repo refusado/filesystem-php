@@ -30,7 +30,7 @@
     transition: 150ms;
 }
 
-.fileViewer__item a {
+#fileAnchor {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
@@ -56,6 +56,21 @@
     font-size: 1rem;
 
     word-break: break-all;
+}
+
+#xis {
+    color: #e1e7f0b7;
+    align-self: center;
+    margin-left: auto;
+    padding: 6px 8px;
+    font-weight: bold;
+
+    transition: 200ms;
+}
+
+#xis:hover {
+    color: #e1e7f0ff;
+    transform: scale(1.1);
 }
 
 @media (max-width: 652px) {

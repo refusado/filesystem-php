@@ -35,6 +35,15 @@ class Upload
         $this->name = $name;
     }
 
+    // RETORNAR A EXTENSÃO DO ARQUIVO;
+    public function getExtension() {
+        return $this->extension;
+    }
+
+    public function getSize() {
+        return $this->Size;
+    }
+
     // GERAR UM NOME ALEATÓRIO PARA O ARQUIVO
     public function generateRandomName()
     {

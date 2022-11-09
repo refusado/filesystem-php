@@ -2,7 +2,7 @@
 
 namespace App;
 
-class AllFiles
+class ListFiles
 {    
     private $path;
     private $dir;
@@ -42,7 +42,7 @@ class AllFiles
     }
 
     // OBTER O CAMINHO DO ÍCONE DE CADA TIPO DE ARQUIVO
-    public function getIcon($file)
+    public function getTypeIcon($file)
     {
         $imageExtensions    = ['PNG','JPG','JPEG','GIF','SVG','BMP','TIFF','WEBP'];
         $pdfExtensions      = ['PDF'];
