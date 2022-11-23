@@ -2,7 +2,7 @@
 
 use \App\Upload;
 use App\Notification;
-$multFiles = false;
+$multFiles = true;
 $allowedExtensions = ['png', 'jpg', 'txt', 'mp4'];
 $preserveName = false;
 $maxFileSize = 500000;

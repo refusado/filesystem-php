@@ -41,6 +41,14 @@ class ListFiles
         return $this->files;
     }
 
+    public function getFileExtension($file)
+    {
+        $completePath   = $this->path . $file;
+        $pathInfo       = pathinfo($completePath);
+
+        return strtoupper($pathInfo['extension']);
+    }
+
     // OBTER O CAMINHO DO ÍCONE DE CADA TIPO DE ARQUIVO
     public function getTypeIcon($file)
     {

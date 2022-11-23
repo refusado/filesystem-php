@@ -13,32 +13,25 @@ if (@$_GET['delete']) {
 }
 
 if (@$_GET['deleted']) {
-    // echo 'Arquivo <b>' . $_GET['deleted'] . '</b> removido com sucesso.';
     new Notification('Arquivo <b>' . $_GET['deleted'] . '</b> removido com sucesso.');
 }
 
 echo "<aside>";
+echo "<h4>Lista de Arquivos</h4>";
+echo "<ul class='fileViewer'>";
 
-if ($allFiles) {
-    echo "<h4>Lista de Arquivos</h4>";
+foreach ($allFiles as $file) {
+    $iconPath = $filesObj->getTypeIcon($file);
+    $extension = $filesObj->getFileExtension($file);
     
-    echo "<ul class='fileViewer'>";
-
-    foreach ($allFiles as $file) {
-        $iconPath = $filesObj->getTypeIcon($file);
-        
-        echo "<li class='fileViewer__item'>";
-        echo    "<a id='fileAnchor' href='files/$file'>";
-        echo        "<img src='$iconPath'/>";
-        echo        "<span id='fileName'>$file</span>";
-        echo        "<a id='xis' href='?delete=$file'>✖</a>";
-        echo    "</a>";
-        echo "</li>";
-    }
-    
-    echo "</ul>";
-} else {
-    echo "Não foi possível exibir os arquivos";
+    echo "<li class='fileViewer__item'>";
+    echo    "<a id='fileAnchor' href='files/$file'>";
+    echo        "<img src='$iconPath'/>";
+    echo        "<span id='fileName'>$file</span>";
+    echo        "<a id='xis' href='?delete=$file'>✖</a>";
+    echo    "</a>";
+    echo "</li>";
 }
 
+echo "</ul>";
 echo "</aside>";
