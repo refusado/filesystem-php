@@ -16,22 +16,29 @@ if (@$_GET['deleted']) {
     new Notification('Arquivo <b>' . $_GET['deleted'] . '</b> removido com sucesso.');
 }
 
-echo "<aside>";
-echo "<h4>Lista de Arquivos</h4>";
-echo "<ul class='fileViewer'>";
+echo "
+    <section class='files'>";
+echo "
+        <ul class='files__container'>";
 
 foreach ($allFiles as $file) {
-    $iconPath = $filesObj->getTypeIcon($file);
     $extension = $filesObj->getFileExtension($file);
     
-    echo "<li class='fileViewer__item'>";
-    echo    "<a id='fileAnchor' href='files/$file'>";
-    echo        "<img src='$iconPath'/>";
-    echo        "<span id='fileName'>$file</span>";
-    echo        "<a id='xis' href='?delete=$file'>✖</a>";
-    echo    "</a>";
-    echo "</li>";
+    echo "
+            <li class='files__item'>";
+    echo "
+                <div class='files__box'>";
+    echo "
+                    <div class='files__extension'>$extension</div>";
+    echo "
+                </div>";
+    echo "
+                <p class='files__name'>$file</p>";
+    echo "
+            </li>";
 }
 
-echo "</ul>";
-echo "</aside>";
+echo "
+        </ul>";
+echo "
+    </section>";
