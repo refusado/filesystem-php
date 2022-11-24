@@ -17,7 +17,7 @@ if (@$_GET['deleted']) {
 }
 
 echo "
-    <section class='files'>";
+    <section id='files'>";
 echo "
         <ul class='files__container'>";
 
@@ -25,7 +25,7 @@ foreach ($allFiles as $file) {
     $extension = $filesObj->getFileExtension($file);
     
     echo "
-            <li class='files__item'>";
+            <li class='files__item' title=$file>";
     echo "
                 <div class='files__box'>";
     echo "
