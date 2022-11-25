@@ -5,6 +5,7 @@
     --sub1: #9E9E9E;
     --sub2: #575757;
     --sub3: #4C4C4C;
+    --text-color: #C9C9C9;
 }
 
 @font-face {
@@ -25,4 +26,10 @@
 body {
     background-color: var(--bg-color);
     padding-bottom: 35px;
+}
+
+@media screen and (min-width: 700) {
+    body {
+        background-color: red;
+    }
 }
