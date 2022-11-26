@@ -2,7 +2,7 @@
 
 use \App\Upload;
 use App\Notification;
-$multFiles = true;
+$multFiles = false;
 $allowedExtensions = ['png', 'jpg', 'txt', 'mp4'];
 $preserveName = false;
 $maxFileSize = 500000;
@@ -11,11 +11,11 @@ echo "<div class='send-files'>";
 
 if ($multFiles) {
     // SISTEMA PARA FORMULÁRIO DE VÁRIOS ARQUIVOS
-    include __DIR__ . '/multi-form.html';
+    include __DIR__ . '/uploads.html';
 
-    if (isset($_FILES['sentFiles'])) {
+    if (isset($_FILES['sent-files'])) {
         
-        $uploads = Upload::createMultipleUploads($_FILES['sentFiles']);
+        $uploads = Upload::createMultipleUploads($_FILES['sent-files']);
 
         if ($uploads) {
             foreach($uploads as $uploadObj) {
@@ -35,10 +35,10 @@ if ($multFiles) {
     }
 } else {
     // SISTMEA PARA FORMULÁRIO DE UM ARQUIVO
-    include __DIR__ . '/form.html';
+    include __DIR__ . '/upload.html';
 
-    if (isset($_FILES['sentFile'])) {
-        $uploadObj = new Upload($_FILES['sentFile']);
+    if (isset($_FILES['sent-file'])) {
+        $uploadObj = new Upload($_FILES['sent-file']);
         
         if (!$preserveName) $uploadObj->generateRandomName();
         

@@ -16,29 +16,19 @@ if (@$_GET['deleted']) {
     new Notification('Arquivo <b>' . $_GET['deleted'] . '</b> removido com sucesso.');
 }
 
-echo "
-    <section id='files'>";
-echo "
-        <ul class='files__container'>";
+echo "<section id='files'>";
+echo "  <ul class='files__container'>";
 
 foreach ($allFiles as $file) {
     $extension = $filesObj->getFileExtension($file);
     
-    echo "
-            <li class='files__item' title=$file>";
-    echo "
-                <div class='files__box'>";
-    echo "
-                    <div class='files__extension'>$extension</div>";
-    echo "
-                </div>";
-    echo "
-                <p class='files__name'>$file</p>";
-    echo "
-            </li>";
+    echo "<li class='files__item' title=$file>";
+    echo "  <a class='files__box'>";
+    echo "      <div class='files__extension'>$extension</div>";
+    echo "  </a>";
+    echo "  <p class='files__name'>$file</p>";
+    echo "</li>";
 }
 
-echo "
-        </ul>";
-echo "
-    </section>";
+echo "  </ul>";
+echo "</section>";
