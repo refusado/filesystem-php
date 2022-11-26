@@ -37,6 +37,12 @@ class Notification
 
     public function notify()
     {
-        echo "<div id='notify'><span>" . $this->message . "</span></div>";
+        echo "<div id='notice-container'><span ";
+        if ($this->type == "error") {
+            echo "style='border-color: red'";
+        } else if ($this->type == "success") {   
+            echo "style='border-color: green'";
+        };
+        echo ">" . $this->message . "</span></div>";
     }
 }

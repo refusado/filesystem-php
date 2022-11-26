@@ -2,7 +2,7 @@
 
 use \App\Upload;
 use App\Notification;
-$multFiles = false;
+$multFiles = true;
 $allowedExtensions = ['png', 'jpg', 'txt', 'mp4'];
 $preserveName = false;
 $maxFileSize = 500000;
@@ -19,18 +19,18 @@ if ($multFiles) {
 
         if ($uploads) {
             foreach($uploads as $uploadObj) {
-                $success = $uploadObj->upload('files', false, $maxFileSize, $allowedExtensions);
-
                 if (!$preserveName) $uploadObj->generateRandomName();
+                
+                $success = $uploadObj->upload('files', false, $maxFileSize, $allowedExtensions);
 
                 if ($success) {
                     $noti = new Notification("Arquivo <b>" . $uploadObj->getBasename() . "</b> enviado com sucesso!", "success");
                 } else {
-                    new Notification("Não foi possível enviar o arquivo", "failure");
+                    new Notification("Não foi possível enviar o arquivo", "error");
                 }
             }
         } else {
-            new Notification("Não foi possível enviar o arquivo", "failure");
+            new Notification("Não foi possível enviar o arquivo", "error");
         }
     }
 } else {
@@ -47,7 +47,7 @@ if ($multFiles) {
         if ($success) {
             $noti = new Notification("Arquivo <b>" . $uploadObj->getBasename() . "</b> enviado com sucesso!", "success");
         } else {
-            new Notification("Não foi possível enviar o arquivo", "failure");
+            new Notification("Não foi possível enviar o arquivo", "error");
         }
     }
 }
