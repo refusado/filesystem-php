@@ -7,12 +7,12 @@ class Notification
     private $message = null;
     private $type = null;
 
-    public function __construct($msg = null, $type = null)
+    public function __construct($msg = null, $type = null, $second = null, $secondType = null)
     {
         $this->setMessage($msg);
         $this->setType($type);
 
-        if ($msg) $this->notify();
+        if ($msg) $this->notify($second, $secondType);
     }
 
     public function setMessage($msg)
@@ -35,14 +35,19 @@ class Notification
         return $this->type;
     }
 
-    public function notify()
+    public function notify($secondMessage, $secondType)
     {
-        echo "<div id='notice-container'><span ";
-        if ($this->type == "error") {
-            echo "style='border-color: red'";
-        } else if ($this->type == "success") {   
-            echo "style='border-color: green'";
-        };
-        echo ">" . $this->message . "</span></div>";
+        echo "<div id='notice-container'>";
+        echo "  <span class='" . $this->type . "'>";
+        echo        $this->message;
+        echo "  </span>";
+        echo "</div>";
+
+        if (!$secondType) return;
+        echo "<div id='second-notice-container'>";
+        echo "  <span class='" . $secondType . "'>";
+        echo        $secondMessage;
+        echo "  </span>";
+        echo "</div>";
     }
 }

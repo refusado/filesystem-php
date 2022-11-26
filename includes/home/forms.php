@@ -4,7 +4,7 @@ use \App\Upload;
 use App\Notification;
 $multFiles = true;
 $allowedExtensions = ['png', 'jpg', 'txt', 'mp4'];
-$preserveName = false;
+$preserveName = true;
 $maxFileSize = 500000;
 
 echo "<div class='send-files'>";
@@ -18,19 +18,29 @@ if ($multFiles) {
         $uploads = Upload::createMultipleUploads($_FILES['sent-files']);
 
         if ($uploads) {
+            $successFiles   = "";
+            $errorFiles     = "";
+            $successNo      = 0;
+            $errorsNo       = 0;
             foreach($uploads as $uploadObj) {
                 if (!$preserveName) $uploadObj->generateRandomName();
                 
                 $success = $uploadObj->upload('files', false, $maxFileSize, $allowedExtensions);
 
                 if ($success) {
-                    $noti = new Notification("Arquivo <b>" . $uploadObj->getBasename() . "</b> enviado com sucesso!", "success");
+                    $successFiles .= "· <b>" . $uploadObj->getBasename() . "</b> ";
+                    $successNo++;
                 } else {
-                    new Notification("Não foi possível enviar o arquivo", "error");
+                    $errorFiles .= "· <b>" . $uploadObj->getBasename() . "</b> ";
+                    $errorsNo++;
                 }
             }
+            $notifySuccess  = "Arquivos enviados ($successNo): $successFiles";
+            $notifyError    = "Arquivos não enviados ($errorsNo): $errorFiles";
+
+            new Notification($notifySuccess, "success", $notifyError, "error");
         } else {
-            new Notification("Não foi possível enviar o arquivo", "error");
+            // new Notification("Não foi possível enviar o arquivo", "error");
         }
     }
 } else {
