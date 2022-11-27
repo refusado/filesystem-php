@@ -35,10 +35,19 @@ if ($multFiles) {
                     $errorsNo++;
                 }
             }
-            $notifySuccess  = "Arquivos enviados ($successNo): $successFiles";
-            $notifyError    = "Arquivos não enviados ($errorsNo): $errorFiles";
-
-            new Notification($notifySuccess, "success", $notifyError, "error");
+            $notifySuccess = null;
+            $successType = null;
+            if ($successNo) {
+                $notifySuccess  = "Arquivos enviados ($successNo): $successFiles";
+                $successType = "success";
+            }
+            $notifyError = null;
+            $errorType = null;
+            if ($errorsNo) {
+                $notifyError = "Arquivos não enviados ($errorsNo): $errorFiles";
+                $errorType = "error";
+            }
+            new Notification($notifySuccess, $successType, $notifyError, $errorType);
         } else {
             // new Notification("Não foi possível enviar o arquivo", "error");
         }
@@ -63,4 +72,4 @@ if ($multFiles) {
 }
 
 echo "</div>";
-echo "<script src='app/js/upload-input.js'></script>";
+echo "<script src='app/js/upload.js'></script>";

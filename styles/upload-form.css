@@ -14,7 +14,7 @@
     align-items: center;
 }
 
-#upload-container > form {
+#upload-form {
     background-color: var(--bg-color);
     background-image: linear-gradient(10deg, var(--bg-color) 70%, #000000 100%);
 
@@ -26,7 +26,7 @@
     animation: show-container 1000ms forwards;
 }
 
-#upload-container > form > h2 {
+#upload-form > h2 {
     color: var(--text-color);
     margin-bottom: 35px;
     text-align: center;
@@ -35,7 +35,7 @@
     text-transform: capitalize;
 }
 
-.upload__box {
+#upload__box {
     background-color: #ffffff31;
     display: block;
     padding: 40px 40px;
@@ -50,22 +50,22 @@
     transition: 350ms;
 }
 
-.upload__box:hover {
+#upload__box:hover {
     opacity: 1;
 }
 
-.upload__box > p {
+#upload__box > p {
     color: var(--main-color);
     text-transform: uppercase;
 }
 
-#upload__file-name {
+#upload__name {
     color: var(--sub1);
     margin-top: 10px;
     display: inline-block;
 }
 
-.upload__btns-container {
+#upload__btns-container {
     margin-top: 25px;
     display: flex;
     justify-content: flex-end;

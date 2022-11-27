@@ -12,7 +12,7 @@ class Notification
         $this->setMessage($msg);
         $this->setType($type);
 
-        if ($msg) $this->notify($second, $secondType);
+        if ($msg || $second) $this->notify($second, $secondType);
     }
 
     public function setMessage($msg)
@@ -37,11 +37,13 @@ class Notification
 
     public function notify($secondMessage, $secondType)
     {
-        echo "<div id='notice-container'>";
-        echo "  <span class='" . $this->type . "'>";
-        echo        $this->message;
-        echo "  </span>";
-        echo "</div>";
+        if ($this->message) {
+            echo "<div id='notice-container'>";
+            echo "  <span class='" . $this->type . "'>";
+            echo        $this->message;
+            echo "  </span>";
+            echo "</div>";
+        }
 
         if (!$secondType) return;
         echo "<div id='second-notice-container'>";
