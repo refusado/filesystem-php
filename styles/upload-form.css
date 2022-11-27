@@ -16,7 +16,6 @@
 
 #upload-form {
     background-color: var(--bg-color);
-    background-image: linear-gradient(10deg, var(--bg-color) 70%, #000000 100%);
 
     padding: 20px;
     width: min(420px, 82vw);
@@ -26,43 +25,60 @@
     animation: show-container 1000ms forwards;
 }
 
-#upload-form > h2 {
-    color: var(--text-color);
-    margin-bottom: 35px;
-    text-align: center;
-    font-weight: 100;
-    font-size: 22px;
-    text-transform: capitalize;
-}
-
-#upload__box {
-    background-color: #ffffff31;
-    display: block;
+.upload__box {
+    background-color: #ffffff13;
+    display: flex;
+    justify-content: center;
     padding: 40px 40px;
     text-align: center;
     width: min(290px, 100%);
     border-radius: 10px;
-    border: dashed 2px var(--main-color);
+    border: 2px dashed var(--sub1);
     margin: 8px auto;
 
-    opacity: 0.9;
+    opacity: 0.85;
     cursor: pointer;
     transition: 350ms;
 }
 
-#upload__box:hover {
+.upload__box:hover {
     opacity: 1;
 }
 
-#upload__box > p {
+.upload__box > img {
+    display: block;
+    padding: 0 20px;
+    margin: 0 auto;
+    max-width: 100px;
+    box-sizing: border-box;
     color: var(--main-color);
     text-transform: uppercase;
+    animation: upload-bounce 3000ms 500ms ease infinite;
 }
 
-#upload__name {
-    color: var(--sub1);
-    margin-top: 10px;
-    display: inline-block;
+.box--filled > img {
+    display: none;
+}
+
+.box--filled {
+    border: 1px solid var(--sub1);
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10px;
+    width: 100%;
+}
+
+.box--filled .upload__name {
+    background-color: var(--sub2);
+    color: var(--text-color);
+    width: fit-content;
+    max-width: 100%;
+    margin: 6px 4px;
+    padding: 10px 15px;
+    word-wrap: break-word;
+
+    border-radius: 6px;
+    box-shadow: 0 2px 8px 0 #00000040;
 }
 
 #upload__btns-container {
@@ -80,24 +96,25 @@
     font-weight: bold;
     text-align: center;
     box-shadow: 0 2px 8px 0 #00000040;
+    border: 1px solid var(--main-color);
 
     cursor: pointer;
-    opacity: 0.85;
-    transition: 300ms;
+    transition: 500ms;
 }
 
 .upload__btn:hover {
-    opacity: 1;
+    transform: scaleX(1.05);
 }
 
 #upload__sent-btn {
-    background-color: var(--text-color);
+    background-color: var(--main-color);
     color: var(--bg-color);
 }
 
 #upload__cancel-btn {
-    border: 1px solid var(--text-color);
-    color: var(--text-color);
+    background-color: var(--bg-color);
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
 }
 
 @keyframes show-container {
@@ -111,5 +128,17 @@
     40% {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes upload-bounce {
+	0%, 20%, 50%, 70%, 100% {
+        transform: translateY(0);
+    }
+	10% {
+        transform: translateY(-15px);
+    }
+	30% {
+        transform: translateY(-5px);
     }
 }

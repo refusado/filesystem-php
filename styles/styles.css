@@ -1,7 +1,7 @@
 :root {
     --main-color: #FFC600;
     --bg-color: #212121;
-    --bg-color2: #21212180;
+    --bg-color2: #0000006c;
     --secondary: #454545;
     --sub1: #9E9E9E;
     --sub2: #575757;
@@ -37,11 +37,15 @@ body {
     display: flex;
     justify-content: center;
 
-    animation: notify 7000ms forwards;
+    animation: notify 6000ms forwards;
 }
 
 #second-notice-container {
     bottom: 200px;
+}
+
+#notice-container:hover, #second-notice-container:hover {
+    animation-play-state: paused;
 }
 
 #notice-container > span, #second-notice-container > span {
@@ -62,11 +66,14 @@ body {
 @keyframes notify {
     0% {
         opacity: 0;
-        transform: translateY(60px);
+        transform: scale(0.95);
     }
-    12%, 88% {
+    4% {
+        transform: scale(1.013);
+    }
+    5%, 88% {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
     }
     99% {
         opacity: 0;

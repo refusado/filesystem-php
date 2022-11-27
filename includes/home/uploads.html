@@ -1,14 +1,12 @@
 <div id="upload-container">
     <form id="upload-form" action="index.php" method="post" enctype="multipart/form-data">
-        <h2>Upload files</h2>
-        <label id="upload__box" >
+        <label id="file-list-box" class="upload__box">
             <input type="file" name="sent-files[]" id="upload__input" multiple hidden>
-            <p>Select files</p>
+            <img fill="red" src="./assets/icons/upload.svg" alt="Upload">
         </label>
-        <span id="upload__name"></span>
         <div id="upload__btns-container">
-            <button class="upload__btn" id="upload__sent-btn" type="submit">Sent</button>
-            <button class="upload__btn" id="upload__cancel-btn" type="button">Cancel</button>
+            <button class="upload__btn" id="upload__sent-btn" type="submit">Enviar</button>
+            <button class="upload__btn" id="upload__cancel-btn" type="button">Cancelar</button>
         </div>
     </form>
 </div>
