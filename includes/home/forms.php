@@ -22,34 +22,33 @@ if ($multFiles) {
             $errorFiles     = "";
             $successNo      = 0;
             $errorsNo       = 0;
+            $notifySuccess  = null;
+            $successType    = null;
+            $notifyError    = null;
+            $errorType      = null;
+
             foreach($uploads as $uploadObj) {
                 if (!$preserveName) $uploadObj->generateRandomName();
                 
                 $success = $uploadObj->upload('files', false, $maxFileSize, $allowedExtensions);
 
                 if ($success) {
-                    $successFiles .= "· <b>" . $uploadObj->getBasename() . "</b> ";
+                    $successFiles .= "| <b>" . $uploadObj->getBasename() . "</b> ";
                     $successNo++;
                 } else {
-                    $errorFiles .= "· <b>" . $uploadObj->getBasename() . "</b> ";
+                    $errorFiles .= "| <b>" . $uploadObj->getBasename() . "</b> ";
                     $errorsNo++;
                 }
             }
-            $notifySuccess = null;
-            $successType = null;
             if ($successNo) {
-                $notifySuccess  = "Arquivos enviados ($successNo): $successFiles";
+                $notifySuccess  = "Arquivo enviado ($successNo): $successFiles";
                 $successType = "success";
             }
-            $notifyError = null;
-            $errorType = null;
             if ($errorsNo) {
-                $notifyError = "Arquivos não enviados ($errorsNo): $errorFiles";
+                $notifyError = "Não enviado ($errorsNo): $errorFiles";
                 $errorType = "error";
             }
             new Notification($notifySuccess, $successType, $notifyError, $errorType);
-        } else {
-            // new Notification("Não foi possível enviar o arquivo", "error");
         }
     }
 } else {

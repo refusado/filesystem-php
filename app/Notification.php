@@ -4,52 +4,38 @@ namespace App;
 
 class Notification
 {
-    private $message = null;
-    private $type = null;
-
-    public function __construct($msg = null, $type = null, $second = null, $secondType = null)
+    private $firstMessage = null;
+    private $secondMessage = null;
+    private $firstType = null;
+    private $secondType = null;
+    
+    public function __construct($fMessage = null, $fType = null, $sMessage = null, $sType = null)
     {
-        $this->setMessage($msg);
-        $this->setType($type);
-
-        if ($msg || $second) $this->notify($second, $secondType);
-    }
-
-    public function setMessage($msg)
-    {
-        $this->message = $msg;
-    }
-
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    public function getMessage()
-    {
-        return $this->message;
-    }
-
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    public function notify($secondMessage, $secondType)
-    {
-        if ($this->message) {
-            echo "<div id='notice-container'>";
-            echo "  <span class='" . $this->type . "'>";
-            echo        $this->message;
-            echo "  </span>";
-            echo "</div>";
+        if ($fMessage) {
+            $this->firstMessage = $fMessage;
+            $this->firstType    = $fType;
+        }
+        if ($sMessage) {
+            $this->secondMessage = $sMessage;
+            $this->secondType = $sType;
         }
 
-        if (!$secondType) return;
-        echo "<div id='second-notice-container'>";
-        echo "  <span class='" . $secondType . "'>";
-        echo        $secondMessage;
-        echo "  </span>";
+        $this->notify();
+    }
+
+    private function notify()
+    {
+        echo "<div class='notice-container'>";
+        if ($this->firstMessage) {
+            echo "  <span class='" . $this->firstType . "'>";
+            echo        $this->firstMessage;
+            echo "  </span>";
+        }
+        if ($this->secondMessage) {
+            echo "  <span class='" . $this->secondType . "'>";
+            echo        $this->secondMessage;
+            echo "  </span>";
+        }
         echo "</div>";
     }
 }
