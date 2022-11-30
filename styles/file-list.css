@@ -6,15 +6,6 @@
 
     overflow-x: hidden;
     overflow-y: scroll;
-    scrollbar-color: var(--bg-color) transparent;
-}
-
-#files::-webkit-scrollbar-thumb {
-    background: var(--bg-color);
-    border-radius: 50px;
-}
-#files::-webkit-scrollbar-track {
-    background: transparent;
 }
 
 .files__container {
@@ -102,15 +93,7 @@
 
         margin: 0;
         padding: 18px 14px;
-        padding-left: calc(14px + 16px);
-    }
-    
-    .files__container::-webkit-scrollbar-thumb {
-        background: var(--bg-color);
-        border-radius: 50px;
-    }
-    .files__container::-webkit-scrollbar-track {
-        background: transparent;
+        padding-left: calc(14px + 8px);
     }
 
     .files__item {

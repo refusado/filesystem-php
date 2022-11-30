@@ -48,7 +48,7 @@
     padding: 10px;
     border: 1px solid var(--secondary);
     border-radius: 40px;
-    box-shadow: 0 2px 8px 0 var(--secondary);
+    box-shadow: 0 2px 8px 0 #4a17ff7e;
     
     cursor: pointer;
 }
@@ -88,7 +88,6 @@
     }
 
     #upload-btn:hover {
-        box-shadow: 0 3px 6px 0 var(--secondary);
-        transform: scale(1.05)
+        filter: brightness(1.2);
     }
 }
