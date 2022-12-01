@@ -5,7 +5,7 @@ use App\Notification;
 $multFiles = true;
 $allowedExtensions = ['png', 'jpg', 'txt', 'mp4'];
 $preserveName = true;
-$maxFileSize = 500000;
+$maxFileSize = 50000000;
 
 echo "<div class='send-files'>";
 

@@ -27,7 +27,7 @@
     border-radius: 10px;
     box-shadow: 0 2px 8px 0 #00000040;
 
-    animation: notify 6000ms forwards;
+    animation: pop-disappear 6000ms forwards;
 }
 
 .notice-container > span:hover {
@@ -40,25 +40,4 @@
 
 .error {
     border: 1px solid #c71d61;
-}
-
-@keyframes notify {
-    0% {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    4% {
-        transform: scale(1.013);
-    }
-    5%, 88% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    99% {
-        opacity: 0;
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(100vw);
-    }
 }

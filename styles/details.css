@@ -1,0 +1,26 @@
+#details {
+  background-color: var(--bg-color2);
+  font-family: sans-serif;
+
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  /* display: none; */
+  justify-content: center;
+  align-items: center;
+}
+
+#details > div {
+  background-color: var(--bg-color);
+
+  padding: 20px;
+  width: min(420px, 82vw);
+  border-radius: 11px;
+  box-shadow: 0 2px 8px 0 #00000040;
+
+  animation: pop-stay 1000ms forwards;
+}

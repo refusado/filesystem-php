@@ -12,16 +12,3 @@
 aside, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-
-*::-webkit-scrollbar {
-    width: 8px;
-}
-
-*::-webkit-scrollbar-thumb {
-    background: var(--bg-color);
-    border-radius: 50px;
-}
-
-*::-webkit-scrollbar-track {
-    background: transparent;
-}
