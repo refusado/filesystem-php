@@ -28,7 +28,7 @@
     border-radius: 11px;
     width: min(160px, 80vw);
     padding: 4px;
-    gap: 3px;
+    gap: 10px;
 
     transition: 400ms;
     cursor: pointer;

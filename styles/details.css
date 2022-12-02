@@ -1,6 +1,7 @@
 #details {
   background-color: var(--bg-color2);
   font-family: sans-serif;
+  color: white;
 
   position: fixed;
   width: 100vw;
@@ -9,14 +10,20 @@
   left: 0;
 
   display: flex;
-  /* display: none; */
   justify-content: center;
   align-items: center;
 }
 
+#details__bg-back {
+  background-color: transparent;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  cursor: default;
+}
+
 #details > div {
   background-color: var(--bg-color);
-
   padding: 20px;
   width: min(420px, 82vw);
   border-radius: 11px;

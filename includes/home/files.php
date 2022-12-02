@@ -10,38 +10,71 @@ if (@$_GET['delete']) {
 }
 
 if (@$_GET['deleted']) {
-    new Notification('Arquivo <b>' . $_GET['deleted'] . '</b> removido com sucesso.', 'success');
+    new Notification('Arquivo "<b>' . $_GET['deleted'] . '</b>" removido com sucesso.', 'success');
 }
 
 if (@$_GET['file']) {
-    echo "<head><link rel='stylesheet' href='styles/details.css'></head>";
+    $hasFile = file_exists('files/' . $_GET['file']);
+    
+    if (!$hasFile) {
+        new Notification('Arquivo "<b>' . $_GET['file'] . '</b>" não encontrado no servidor.', 'error');
+    } else {
+        echo "<head><link rel='stylesheet' href='styles/details.css'></head>";
 
-    $info = pathinfo($_GET['file']);
+        $filePath = "files/" . $_GET['file'];
+        $info = pathinfo($filePath);
 
-    $name       = $info['filename'];
-    $fullName   = $info['basename'];
-    $extension  = $info['extension'];
-    $type       = mime_content_type("files/" . $_GET['file']);
-    $size       = filesize("files/" . $_GET['file']);
-    $finalSize  = formatBytes($size, 0);
+        $name       = $info['filename'];
+        $fullName   = $info['basename'];
+        $extension  = $info['extension'];
+        $type       = mime_content_type($filePath);
+        $size       = filesize($filePath);
+        $finalSize  = formatBytes($size, 0);
 
-    echo "<div id='details'>";
-    echo "  <div>";
-    echo "      <div>";
-    echo "          <p>Nome: $name</p>";
-    echo "          <p>Nome completo: $fullName</p>";
-    echo "          <p title='$size'>Tamanho: $finalSize</p>";
-    echo "          <p>Tipo: $type</p>";
-    echo "          <p>Extensão: $extension</p>";
-    echo "      </div>";
-    echo "      <button id='delete-btn'>Excluir arquivo</button>";
-    echo "      <div id='delete-file-box'>";
-    echo "          <p>Cuidado! Isto irá remover o arquivo permanentemente do servidor, você tem certeza que desja excluir <b>$fullName</b>?</p>";
-    echo "          <a href='?delete=$fullName'>Sim, excluir arquivo</a>";
-    echo "          <button id='nodelete-btn'>Não</button>";
-    echo "      </div>";
-    echo "  </div>";
-    echo "</div>";
+        echo "<div id='details'>";
+        echo "  <a id='details__bg-back' href='./'>Voltar</a>";
+        echo "  <div id='details__container'>";
+        echo "      <div id='details__data'>";
+        echo "          <p id='details__name'>Nome: $name</p>";
+        echo "          <p id='details__fullname'>Nome completo: $fullName</p>";
+        echo "          <p id='details__size' title='$size'>Tamanho: $finalSize</p>";
+        echo "          <p id='details__type' >Tipo: $type</p>";
+        echo "          <p id='details__extension'>Extensão: $extension</p>";
+        echo "      </div>";
+
+        
+        echo "      <div id='details__preview-container' style='background-color: white; color: black;'>";
+
+        if(strstr($type, 'image/')) {
+            echo "      <img width='100%' src='$filePath' title='$name' alt='$fullName'/>";
+        } else if(strstr($type, 'video/')) {
+            echo "      <video controls width='100%' src='$filePath' title='$name' alt='$fullName'/>";
+        } else if(strstr($type, 'text/')) {
+            $fileContent    = file_get_contents($filePath, false, null, 0, 200);
+            $detected       = mb_detect_encoding($fileContent, 'UTF-8, ISO-8859-1', true);
+            $fileContent    = mb_convert_encoding($fileContent, 'UTF-8', $detected);
+            
+            echo "      <span>$fileContent</span>";
+        } else {
+            echo "      <span>Não há demonstração para este tipo de arquivo</span>";
+        }
+
+        echo "      </div>";
+
+
+
+        echo "      <a href='./'>Voltar</a>";
+        echo "      <button id='details__delete-btn'>Excluir arquivo</button>";
+
+        echo "      <div id='details__delete-warning'>";
+        echo "          <p>Cuidado! Isto irá remover o arquivo permanentemente do servidor, você tem certeza que desja excluir <b>$fullName</b>?</p>";
+        echo "          <a id='details__delete-confirm-btn' href='?delete=$fullName'>Sim, excluir arquivo</a>";
+        echo "          <button id='details__delete-cancel-btn'>Cancelar</button>";
+        echo "      </div>";
+
+        echo "  </div>";
+        echo "</div>";
+    }
 }
 
 $filesObj = new ListFiles();
