@@ -11,8 +11,7 @@
 }
 
 .menu__item {
-    background-color: var(--sub2);
-    background-image: linear-gradient(to bottom, var(--sub2), var(--bg-color));
+    background-color: var(--bg-color);
     border: none;
     width: 40px;
     height: 40px;
@@ -48,7 +47,7 @@
     padding: 10px;
     border: 1px solid var(--secondary);
     border-radius: 40px;
-    box-shadow: 0 2px 8px 0 #4a17ff7e;
+    box-shadow: 0 2px 8px 0 #00000040;
     
     cursor: pointer;
 }
@@ -84,10 +83,10 @@
 
     #upload-btn {
         margin: 0;
-        transition: 260ms;
+        transition: 400ms;
     }
 
     #upload-btn:hover {
-        filter: brightness(1.2);
+        filter: brightness(1.15);
     }
 }
