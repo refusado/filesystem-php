@@ -22,12 +22,125 @@
   cursor: default;
 }
 
-#details > div {
+#details__container {
   background-color: var(--bg-color);
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
   padding: 20px;
-  width: min(420px, 82vw);
+  width: min(680px, 94vw);
   border-radius: 11px;
   box-shadow: 0 2px 8px 0 #00000040;
-
   animation: pop-stay 1000ms forwards;
+}
+
+#details__data {
+  padding: 10px;
+  width: 100%;
+  color: var(--text-color);
+}
+
+.details__mark {
+  color: var(--sub1);
+}
+
+#details__preview {
+  background-color: var(--secondary);
+  width: min(68vw, 380px);
+  height: min(50vw, 280px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--main-color);
+  border-radius: 11px;
+  overflow: hidden;
+  transition: 300ms;
+}
+
+#details__preview:hover {
+  transform: scale(1.015);
+}
+
+#details__preview > img, #details__preview > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#preview__content {
+  height: fit-content;
+  color: var(--text-color);
+  margin: 12px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+#preview__default {
+  color: var(--sub1);
+  text-align: center;
+  padding: 8px;
+}
+
+.details__btns {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.details-btn {
+  background-color: unset;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 2px 8px 0 #00000040;
+  border: 1px solid var(--main-color);
+
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 500ms;
+}
+
+.details-btn:hover {
+  opacity: 1;
+}
+
+.details__download-btn {
+  background-color: var(--main-color);
+  color: var(--bg-color);
+}
+
+.details__back-btn {
+  background-color: var(--bg-color);
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+}
+
+.details__delete-btn {
+  background-color: var(--bg-color);
+  border: 1px solid #d03131;
+  color: #d03131;
+  margin-right: auto;
+
+}
+
+.details__delete-warning {
+  position: absolute;
+  padding: 10px;
+  width: 80%;
+  min-width: 300px;
+
+  background-color: orange;
 }

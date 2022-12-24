@@ -35,39 +35,42 @@ if (@$_GET['file']) {
         echo "  <a id='details__bg-back' href='./'>Voltar</a>";
         echo "  <div id='details__container'>";
         echo "      <div id='details__data'>";
-        echo "          <p id='details__name'>Nome: $name</p>";
-        echo "          <p id='details__fullname'>Nome completo: $fullName</p>";
-        echo "          <p id='details__size' title='$size'>Tamanho: $finalSize</p>";
-        echo "          <p id='details__type' >Tipo: $type</p>";
-        echo "          <p id='details__extension'>Extensão: $extension</p>";
+        echo "          <p id='details__name'><span class='details__mark'>Nome:</span> $name</p>";
+        echo "          <p id='details__extension'><span class='details__mark'>Extensão:</span> $extension</p>";
+        echo "          <p id='details__size' title='$size'><span class='details__mark'>Tamanho:</span> $finalSize</p>";
+        echo "          <p id='details__type'><span class='details__mark'>Tipo:</span> $type</p>";
+        echo "          <p id='details__fullname'><span class='details__mark'>Nome completo:</span> $fullName</p>";
         echo "      </div>";
 
         
-        echo "      <div id='details__preview-container' style='background-color: white; color: black;'>";
+        echo "      <div id='details__preview'>";
 
+        // SE FOR UMA IMAGEM OU VÍDEO, EXIBIR DEMO
         if(strstr($type, 'image/')) {
             echo "      <img width='100%' src='$filePath' title='$name' alt='$fullName'/>";
         } else if(strstr($type, 'video/')) {
             echo "      <video controls width='100%' src='$filePath' title='$name' alt='$fullName'/>";
         } else if(strstr($type, 'text/')) {
-            $fileContent    = file_get_contents($filePath, false, null, 0, 200);
+            $fileContent    = file_get_contents($filePath, false, null, 0, 350);
             $detected       = mb_detect_encoding($fileContent, 'UTF-8, ISO-8859-1', true);
             $fileContent    = mb_convert_encoding($fileContent, 'UTF-8', $detected);
             
-            echo "      <span>$fileContent</span>";
+            echo "      <span id='preview__content'>$fileContent</span>";
         } else {
-            echo "      <span>Não há demonstração para este tipo de arquivo</span>";
+            echo "      <span id='preview__default'>Sem demo para este arquivo.</span>";
         }
 
         echo "      </div>";
 
 
+        echo "      <div class='details__btns'>";
+        echo "        <button class='details-btn details__delete-btn'>Deletar</button>";
+        echo "        <a class='details-btn details__back-btn' href='./'>Voltar</a>";
+        echo "        <a class='details-btn details__download-btn' href='$filePath' download>Baixar</a>";
+        echo "      </div>";
 
-        echo "      <a href='./'>Voltar</a>";
-        echo "      <button id='details__delete-btn'>Excluir arquivo</button>";
-
-        echo "      <div id='details__delete-warning'>";
-        echo "          <p>Cuidado! Isto irá remover o arquivo permanentemente do servidor, você tem certeza que desja excluir <b>$fullName</b>?</p>";
+        echo "      <div class='details__delete-warning'>";
+        echo "          <p>Tem certeza que deseja excluir <b>$fullName</b>? Esta ação não poderá ser desfeita!</p>";
         echo "          <a id='details__delete-confirm-btn' href='?delete=$fullName'>Sim, excluir arquivo</a>";
         echo "          <button id='details__delete-cancel-btn'>Cancelar</button>";
         echo "      </div>";
