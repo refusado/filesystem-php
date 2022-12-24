@@ -57,14 +57,14 @@
   align-items: center;
   justify-content: center;
 
-  border: 1px solid var(--main-color);
+  border: 1px solid var(--sub1);
   border-radius: 11px;
   overflow: hidden;
-  transition: 300ms;
+  transition: 600ms;
 }
 
 #details__preview:hover {
-  transform: scale(1.015);
+  border: 1px solid var(--main-color);
 }
 
 #details__preview > img, #details__preview > video {
@@ -130,17 +130,47 @@
 
 .details__delete-btn {
   background-color: var(--bg-color);
-  border: 1px solid #d03131;
+  border: none;
+  text-transform: uppercase;
   color: #d03131;
   margin-right: auto;
-
+  padding: 1px 5px;
 }
 
 .details__delete-warning {
+  display: flex;
   position: absolute;
-  padding: 10px;
-  width: 80%;
-  min-width: 300px;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 
-  background-color: orange;
+  background-color: var(--bg-color);
+  display: none;
+}
+
+.active {
+  display: flex;
+}
+
+.details__delete-container {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 40px;
+  padding: 20px;
+  max-width: 600px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.details__delete-confirm-btn {
+  display: inline-block;
+  background-color: var(--bg-color);
+  border: 1px solid #d03131;
+  color: #d03131;
+}
+
+.details__delete-cancel-btn {
+  background-color: var(--main-color);
+  color: var(--bg-color);
 }

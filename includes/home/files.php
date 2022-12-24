@@ -32,7 +32,7 @@ if (@$_GET['file']) {
         $finalSize  = formatBytes($size, 0);
 
         echo "<div id='details'>";
-        echo "  <a id='details__bg-back' href='./'>Voltar</a>";
+        echo "  <a id='details__bg-back' href='./'></a>";
         echo "  <div id='details__container'>";
         echo "      <div id='details__data'>";
         echo "          <p id='details__name'><span class='details__mark'>Nome:</span> $name</p>";
@@ -64,19 +64,24 @@ if (@$_GET['file']) {
 
 
         echo "      <div class='details__btns'>";
-        echo "        <button class='details-btn details__delete-btn'>Deletar</button>";
+        echo "        <button class='details__delete-btn details-btn' id='openDelete'>Excluir arquivo</button>";
         echo "        <a class='details-btn details__back-btn' href='./'>Voltar</a>";
         echo "        <a class='details-btn details__download-btn' href='$filePath' download>Baixar</a>";
         echo "      </div>";
 
-        echo "      <div class='details__delete-warning'>";
-        echo "          <p>Tem certeza que deseja excluir <b>$fullName</b>? Esta ação não poderá ser desfeita!</p>";
-        echo "          <a id='details__delete-confirm-btn' href='?delete=$fullName'>Sim, excluir arquivo</a>";
-        echo "          <button id='details__delete-cancel-btn'>Cancelar</button>";
+        echo "      <div class='details__delete-warning' id='deleteBox'>";
+        echo "        <div class='details__delete-container'>";
+        echo "            <p>Tem certeza que deseja excluir <b>$fullName</b>? Esta ação não poderá ser desfeita.</p>";
+        echo "            <div class='details__btns'>";
+        echo "                <a class='details-btn details__delete-confirm-btn' href='?delete=$fullName'>Sim, excluir arquivo</a>";
+        echo "                <button class='details-btn details__delete-cancel-btn' id='closeDelete'>Cancelar</button>";
+        echo "            </div>";
+        echo "        </div>";
         echo "      </div>";
 
         echo "  </div>";
         echo "</div>";
+        echo "<script src='./app/js/delete-file.js'></script>";
     }
 }
 
