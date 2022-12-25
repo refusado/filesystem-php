@@ -129,12 +129,12 @@
 }
 
 .details__delete-btn {
-  background-color: var(--bg-color);
   border: none;
   text-transform: uppercase;
   color: #d03131;
   margin-right: auto;
   padding: 1px 5px;
+  box-shadow: unset;
 }
 
 .details__delete-warning {
