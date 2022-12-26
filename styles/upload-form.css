@@ -1,5 +1,5 @@
 #upload-container {
-    background-color: var(--bg-color2);
+    background-color: #000000ad;
     font-family: sans-serif;
 
     position: fixed;
@@ -12,6 +12,10 @@
     display: none;
     justify-content: center;
     align-items: center;
+}
+
+.active {
+  display: flex;
 }
 
 #upload-form {

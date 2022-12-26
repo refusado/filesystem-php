@@ -1,49 +1,51 @@
-<form method="post" id="uploadConfigs">
-    <h4>Permitir o envio de</h4>
-    <div class="filesNo">
-        <input type="radio" name="filesNo" id="oneFile" checked hidden>
-        <label for="oneFile">Apenas um arquivo</label>
-        <input type="radio" name="filesNo" id="severalFiles" hidden>
-        <label for="severalFiles">Vários arquivos</label>
-    </div>
+<div class="settings">
+    <form class="settings__container" method="post">
+        <h4>Permitir o envio de</h4>
+        <div class="filesNo">
+            <input type="radio" name="filesNo" id="oneFile" checked hidden>
+            <label for="oneFile">Apenas um arquivo</label>
+            <input type="radio" name="filesNo" id="severalFiles" hidden>
+            <label for="severalFiles">Vários arquivos</label>
+        </div>
 
-    <h4>Extensões permitidas</h4>
-    <div class="allowedExtensions">
-        <input type="checkbox" name="png" id="png" hidden checked>
-        <label for="png">.png</label>
+        <h4>Extensões permitidas</h4>
+        <div class="allowedExtensions">
+            <input type="checkbox" name="png" id="png" hidden checked>
+            <label for="png">.png</label>
 
-        <input type="checkbox" name="jpg" id="jpg" hidden checked>
-        <label for="jpg">.jpg</label>
+            <input type="checkbox" name="jpg" id="jpg" hidden checked>
+            <label for="jpg">.jpg</label>
 
-        <input type="checkbox" name="jpeg" id="jpeg" hidden checked>
-        <label for="jpeg">.jpeg</label>
+            <input type="checkbox" name="jpeg" id="jpeg" hidden checked>
+            <label for="jpeg">.jpeg</label>
 
-        <input type="checkbox" name="txt" id="txt" hidden>
-        <label for="txt">.txt</label>
+            <input type="checkbox" name="txt" id="txt" hidden>
+            <label for="txt">.txt</label>
 
-        <input type="checkbox" name="exe" id="exe" hidden>
-        <label for="exe">.exe</label>
-    </div>
-    
-    <h4>Preservar nomes</h4>
-    <div class="preserveName">
-        <input type="radio" name="preserve" id="preserve" checked hidden>
-        <label for="preserve">Sim</label>
-        <input type="radio" name="preserve" id="dontPreseve" hidden>
-        <label for="dontPreseve">Não</label>
-    </div>
-    
-    <h4>Tamanho máximo de arquivo</h4>
-    <div class="maxSize">
-        <!-- 500KB 1MB 5MB 7MB 10MB 15MB 20MB 30MB 40MB 50MB 60MB 70MB 80MB 90MB 100MB 150MB -->
-        <input type="range" name="sizeLimit" id="sizeLimit" value="3" min="1" max="14" step="1">
-        <span id="sizeValue"></span>
-    </div>
+            <input type="checkbox" name="exe" id="exe" hidden>
+            <label for="exe">.exe</label>
+        </div>
+        
+        <h4>Preservar nomes</h4>
+        <div class="preserveName">
+            <input type="radio" name="preserve" id="preserve" checked hidden>
+            <label for="preserve">Sim</label>
+            <input type="radio" name="preserve" id="dontPreseve" hidden>
+            <label for="dontPreseve">Não</label>
+        </div>
+        
+        <h4>Tamanho máximo de arquivo</h4>
+        <div class="maxSize">
+            <!-- 500KB 1MB 5MB 7MB 10MB 15MB 20MB 30MB 40MB 50MB 60MB 70MB 80MB 90MB 100MB 150MB -->
+            <input type="range" name="sizeLimit" id="sizeLimit" value="3" min="1" max="14" step="1">
+            <span id="sizeValue"></span>
+        </div>
 
-    <hr>
+        <hr>
 
-    <div id="sendConfigs">
-        <button type="submit">Salvar</button>
-    </div>
-</form>
+        <div id="sendConfigs">
+            <button type="submit">Salvar</button>
+        </div>
+    </form>
+</div>
 <script src="app/js/upload-configs.js"></script>

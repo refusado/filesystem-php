@@ -9,19 +9,22 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/file-list.css">
+    <link rel="stylesheet" href="styles/settings.css">
+    <link rel="stylesheet" href="styles/info.css">
     <link rel="stylesheet" href="styles/upload-form.css">
     <link rel="stylesheet" href="styles/notify.css">
+    <script src='./app/js/popups.js' defer></script>
 </head>
 <body>
 <header>
     <menu class="menu">
         <li>
-            <button class="menu__item settings-btn" type="button">
+            <button class="menu__item settings-btn" id="openSettings" type="button">
                 <img src="./assets/icons/settings.svg" alt="Settings">
             </button>
         </li>
         <li>
-            <button class="menu__item info-btn" type="button">
+            <button class="menu__item info-btn" id="openInfo" type="button">
                 <img src="./assets/icons/info.svg" alt="About">
             </button>
         </li>
