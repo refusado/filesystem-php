@@ -14,7 +14,7 @@
     align-items: center;
 }
 
-.active {
+#upload-container.active {
   display: flex;
 }
 
@@ -40,7 +40,7 @@
 
     border-radius: 10px;
     border: 2px dashed var(--sub1);
-    overflow: scroll;
+    overflow-y: auto;
     text-align: center;
     
     opacity: 0.85;
