@@ -4,23 +4,12 @@
 use App\ListFiles;
 use App\Notification;
 
-if (@$_GET['delete']) {
-    unlink('files/' . $_GET['delete']);
-    header('Location:?deleted=' . $_GET['delete']);
-}
-
-if (@$_GET['deleted']) {
-    new Notification('Arquivo "<b>' . $_GET['deleted'] . '</b>" removido com sucesso.', 'success');
-}
-
 if (@$_GET['file']) {
     $hasFile = file_exists('files/' . $_GET['file']);
     
     if (!$hasFile) {
         new Notification('Arquivo "<b>' . $_GET['file'] . '</b>" não encontrado no servidor.', 'error');
     } else {
-        echo "<head><link rel='stylesheet' href='styles/details.css'></head>";
-
         $filePath = "files/" . $_GET['file'];
         $info = pathinfo($filePath);
 

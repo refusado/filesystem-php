@@ -11,17 +11,17 @@
 
 @font-face {
     font-family: K2D SemiBold;
-    src: url(../assets/fonts/K2D-SemiBold.ttf);
+    src: url(./assets/fonts/K2D-SemiBold.ttf);
 }
 
 @font-face {
     font-family: K2D ExtraLight;
-    src: url(../assets/fonts/K2D-ExtraLight.ttf);
+    src: url(./assets/fonts/K2D-ExtraLight.ttf);
 }
 
 @font-face {
     font-family: Glory;
-    src: url(../assets/fonts/Glory.ttf);
+    src: url(./assets/fonts/Glory.ttf);
 }
 
 @keyframes pop-disappear {
@@ -144,10 +144,4 @@ input[type="range"]::-ms-thumb {
     input[type="range"] {
         margin: 0;
     }
-}input[type="range"]::-ms-fill-lower {
-    background-color: red; 
-  }
-  
-  input[type="range"]::-ms-fill-upper {  
-    background-color: blue;
-  }
+}
