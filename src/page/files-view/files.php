@@ -37,6 +37,8 @@ if (@$_GET['file']) {
         // SE FOR UMA IMAGEM OU VÍDEO, EXIBIR DEMO
         if(strstr($type, 'image/')) {
             echo "      <img width='100%' src='$filePath' title='$name' alt='$fullName'/>";
+        } else if(strstr($type, 'application/')) {
+            echo "      <audio controls width='100%' src='$filePath' title='$name' alt='$fullName'/>";
         } else if(strstr($type, 'video/')) {
             echo "      <video controls width='100%' src='$filePath' title='$name' alt='$fullName'/>";
         } else if(strstr($type, 'text/')) {
