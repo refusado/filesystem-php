@@ -1,7 +1,7 @@
 .settings {
     background-color: #000000ad;
     color: var(--text-color);
-    font-family: sans-serif;
+    font-family: K2D ExtraLight;
 
     position: fixed;
     width: 100vw;
@@ -24,6 +24,7 @@
     font-size: 1.6rem;
     margin-bottom: 20px;
     text-align: center;
+    font-family: K2D SemiBold;
 }
 
 .settings hr {
@@ -44,12 +45,16 @@
 }
 
 .settings__form-group {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .settings__subtitle {
     font-size: 1.2rem;
     margin-bottom: 6px;
+}
+
+.settings__extensions {
+    user-select: none;
 }
 
 .settings__extensions label {
@@ -63,7 +68,6 @@
     margin-right: 6px;
     margin-top: 8px;
 
-    user-select: none;
     cursor: pointer;
     transition: 300ms;
 }
@@ -134,6 +138,7 @@
 .settings_save-btn {
     background-color: var(--main-color);
     color: var(--bg-color);
+    font-family: K2D SemiBold;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
