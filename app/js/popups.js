@@ -88,14 +88,6 @@ filesInput.addEventListener('change', () => {
     });
 });
 
-
-
-
-
-
-
-
-
 window.addEventListener('keyup', (e) => {
     const activeElements = [...document.querySelectorAll('.active')];
     if (e.key == 'Escape')

@@ -1,15 +1,10 @@
 <div class="settings">
     <form class="settings__container" method="post">
-        <h4>Permitir o envio de</h4>
-        <div class="filesNo">
-            <input type="radio" name="filesNo" id="oneFile" checked hidden>
-            <label for="oneFile">Apenas um arquivo</label>
-            <input type="radio" name="filesNo" id="severalFiles" hidden>
-            <label for="severalFiles">Vários arquivos</label>
-        </div>
+        <h3 class="settings__title">Configurações</h3>
+        <hr>
 
-        <h4>Extensões permitidas</h4>
-        <div class="allowedExtensions">
+        <h4 class="settings__subtitle">Extensões permitidas</h4>
+        <div class="settings__form-group settings__extensions">
             <input type="checkbox" name="png" id="png" hidden checked>
             <label for="png">.png</label>
 
@@ -19,32 +14,69 @@
             <input type="checkbox" name="jpeg" id="jpeg" hidden checked>
             <label for="jpeg">.jpeg</label>
 
-            <input type="checkbox" name="txt" id="txt" hidden>
+            <input type="checkbox" name="mp4" id="mp4" hidden checked>
+            <label for="mp4">.mp4</label>
+
+            <input type="checkbox" name="mp3" id="mp3" hidden checked>
+            <label for="mp3">.mp3</label>
+
+            <input type="checkbox" name="txt" id="txt" hidden checked>
             <label for="txt">.txt</label>
+
+            <input type="checkbox" name="word" id="word" hidden checked>
+            <label for="word">.word</label>
+
+            <input type="checkbox" name="doc" id="doc" hidden checked>
+            <label for="doc">.doc</label>
+
+            <input type="checkbox" name="pdf" id="pdf" hidden checked>
+            <label for="pdf">.pdf</label>
 
             <input type="checkbox" name="exe" id="exe" hidden>
             <label for="exe">.exe</label>
+
+            <input type="checkbox" name="dll" id="dll" hidden>
+            <label for="dll">.dll</label>
+
+            <input type="checkbox" name="csv" id="csv" hidden checked>
+            <label for="csv">.csv</label>
+
+            <input type="checkbox" name="xls" id="xls" hidden>
+            <label for="xls">.xls</label>
+
+            <input type="checkbox" name="ppt" id="ppt" hidden checked>
+            <label for="ppt">.ppt</label>
+
+            <input type="checkbox" name="pps" id="pps" hidden checked>
+            <label for="pps">.pps</label>
+
+            <input type="checkbox" name="psd" id="psd" hidden>
+            <label for="psd">.psd</label>
+
+            <input type="checkbox" name="zip" id="zip" hidden>
+            <label for="zip">.zip</label>
+
+            <input type="checkbox" name="rar" id="rar" hidden>
+            <label for="rar">.rar</label>
         </div>
         
-        <h4>Preservar nomes</h4>
-        <div class="preserveName">
+        <h4 class="settings__subtitle">Preservar nomes</h4>
+        <div class="settings__form-group settings__preserve-names">
             <input type="radio" name="preserve" id="preserve" checked hidden>
             <label for="preserve">Sim</label>
             <input type="radio" name="preserve" id="dontPreseve" hidden>
             <label for="dontPreseve">Não</label>
         </div>
         
-        <h4>Tamanho máximo de arquivo</h4>
-        <div class="maxSize">
-            <!-- 500KB 1MB 5MB 7MB 10MB 15MB 20MB 30MB 40MB 50MB 60MB 70MB 80MB 90MB 100MB 150MB -->
+        <h4 class="settings__subtitle">Tamanho máximo</h4>
+        <div class="settings__form-group settings__max-size">
             <input type="range" name="sizeLimit" id="sizeLimit" value="3" min="1" max="14" step="1">
             <span id="sizeValue"></span>
         </div>
 
         <hr>
-
-        <div id="sendConfigs">
-            <button type="submit">Salvar</button>
+        <div class="settings__form-group settings__send-container">
+            <button class="settings_save-btn" type="submit">Salvar</button>
         </div>
     </form>
 </div>
