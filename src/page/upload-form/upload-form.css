@@ -1,6 +1,6 @@
 #upload-container {
     background-color: #000000ad;
-    font-family: sans-serif;
+    font-family: K2D SemiBold, sans-serif;
 
     position: fixed;
     width: 100vw;
@@ -13,7 +13,6 @@
     justify-content: center;
     align-items: center;
 }
-
 #upload-container.active {
   display: flex;
 }
@@ -100,6 +99,7 @@
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
+    font-family: inherit;
     font-weight: bold;
     text-align: center;
     box-shadow: 0 2px 8px 0 #00000040;

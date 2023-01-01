@@ -1,7 +1,7 @@
 .info {
     background-color: #000000ad;
     color: var(--text-color);
-    font-family: K2D ExtraLight;
+    font-family: var(--font);
 
     position: absolute;
     justify-content: center;
@@ -37,12 +37,12 @@ hr {
 
 .info__title {
   color: var(--main-color);
-  font-family: K2D SemiBold;
+  font-family: var(--font-bold);
 }
 
 .info__subtitle {
   color: var(--main-color);
-  font-family: K2D SemiBold;
+  font-family: var(--font-bold);
   font-size: 1.3rem;
   margin: 20px 0;
 }

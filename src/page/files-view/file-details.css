@@ -1,7 +1,7 @@
 .details {
   background-color: #000000ad;
-  font-family: sans-serif;
-  color: white;
+  font-family: var(--font);
+  color: var(--text-color);
 
   position: fixed;
   width: 100vw;

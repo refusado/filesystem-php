@@ -7,6 +7,9 @@
     --sub2: #575757;
     --sub3: #4c4c4c;
     --text-color: #c9c9c9;
+    --font: K2D ExtraLight, sans-serif;
+    --font-bold: K2D SemiBold, sans-serif;
+    --font-icon: Glory, sans-serif;
 }
 
 @font-face {

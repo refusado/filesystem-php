@@ -1,7 +1,6 @@
 .menu {
     display: flex;
     width: fit-content;
-    /* padding: 10px; */
     gap: 15px;
     border-radius: 200px;
 
@@ -25,7 +24,7 @@
 
 #main-title {
     color: var(--main-color);
-    font-family: K2D SemiBold, sans-serif;
+    font-family: var(--font-bold);
     text-transform: uppercase;
     font-size: min(48px, 15vw);
 

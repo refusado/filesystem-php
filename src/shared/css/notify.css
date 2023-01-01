@@ -20,7 +20,7 @@
     padding: 20px 28px;
 
     color: var(--text-color);
-    font-family: K2D Extralight;
+    font-family: var(--font);
     text-align: center;
     word-wrap: break-word;
 
